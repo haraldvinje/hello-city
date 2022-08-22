@@ -1,0 +1,45 @@
+server:
+  port: ${PORT:8080}
+
+spring:
+  config:
+    activate:
+      on-profile: production
+  cloud:
+    appId: <your-gcp-project-id>
+    gcp:
+      sql:
+        instance-connection-name: <your-gcp-project-id:your-region:your-db-instance>
+        database-name: <your-db-name>
+
+  jpa:
+    hibernate:
+      dialect: org.hibernate.dialect.MySQL8Dialect
+      default_schema: hello-norway
+      show_sql: true
+      ddl-auto: update
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    continue-on-error: true
+    initialization-mode: always
+    url: jdbc:mysql:///<app-name>?<your-gcp-project-id:your-region:your-db-instance>&usesocketFactory=com.google.cloud.sql.mysql.SocketFactory&user=<dbusername>&password=<dbpassword>
+    user: <dbuser>
+    password: <dbpassword>
+
+---
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+  datasource:
+    url: jdbc:h2:mem:mydb
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+
+  cloud:
+    gcp:
+      sql:
+        enabled: false
