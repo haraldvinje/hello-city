@@ -1,9 +1,9 @@
 package com.example.hellocity.services
 
-import com.example.hellocity.controllers.CityNotFoundException
-import com.example.hellocity.entitites.City
-import com.example.hellocity.entitites.NewCity
+import com.example.hellocity.exceptions.CityNotFoundException
 import com.example.hellocity.extensions.unrwap
+import com.example.hellocity.models.City
+import com.example.hellocity.models.NewCity
 import com.example.hellocity.repositories.CityRepository
 import org.springframework.stereotype.Service
 

@@ -1,4 +1,4 @@
-package com.example.hellocity.entitites
+package com.example.hellocity.models
 
 import com.example.hellocity.extensions.toSlug
 import java.time.LocalDateTime

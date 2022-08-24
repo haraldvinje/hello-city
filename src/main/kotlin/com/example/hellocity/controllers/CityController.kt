@@ -1,7 +1,7 @@
 package com.example.hellocity.controllers
 
-import com.example.hellocity.entitites.City
-import com.example.hellocity.entitites.NewCity
+import com.example.hellocity.models.City
+import com.example.hellocity.models.NewCity
 import com.example.hellocity.services.CityService
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.DeleteMapping
@@ -22,11 +22,11 @@ class CityController(private val cityService: CityService) {
 
     @GetMapping("/{id}")
     fun getById(@PathVariable id: Long): City? =
-        cityService.getById(id) ?: throw ResponseStatusException(HttpStatus.NOT_FOUND, "City with id $id does not exist")
+        cityService.getById(id)
 
     @GetMapping("/{slug}")
     fun getBySlug(@PathVariable slug: String): City? =
-        cityService.getBySlug(slug) ?: throw ResponseStatusException(HttpStatus.NOT_FOUND, "City with slug $slug does not exist")
+        cityService.getBySlug(slug)
 
     @RequestMapping(method = [RequestMethod.POST])
     fun addCity(@RequestBody newCity: NewCity) {
@@ -37,7 +37,7 @@ class CityController(private val cityService: CityService) {
     fun deleteCity(@PathVariable id: Long) {
         try {
             cityService.deleteById(id)
-        } catch (e: CityNotFoundException) {
+        } catch (e: IllegalArgumentException) {
             throw ResponseStatusException(HttpStatus.NOT_FOUND, "City with id $id does not exist")
         }
     }
