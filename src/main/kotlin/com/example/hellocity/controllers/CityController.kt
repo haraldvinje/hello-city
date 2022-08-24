@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.server.ResponseStatusException
-import java.lang.IllegalArgumentException
 
 @RestController
 @RequestMapping("/api/city")
@@ -38,8 +37,8 @@ class CityController(private val cityService: CityService) {
     fun deleteCity(@PathVariable id: Long) {
         try {
             cityService.deleteById(id)
-        } catch (e: IllegalArgumentException) {
-            throw ResponseStatusException(HttpStatus.NOT_FOUND, e.localizedMessage)
+        } catch (e: CityNotFoundException) {
+            throw ResponseStatusException(HttpStatus.NOT_FOUND, "City with id $id does not exist")
         }
     }
 }
