@@ -3,5 +3,5 @@ CREATE TABLE IF NOT EXISTS cities(
   name                   VARCHAR      NOT NULL,
   description            VARCHAR      NOT NULL,
   slug                   VARCHAR      NOT NULL,
-  addedAt                DATETIME     NOT NULL
+  added_at               DATETIME     NOT NULL
 );

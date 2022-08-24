@@ -2,7 +2,7 @@ package com.example.hellocity.controllers
 
 import com.example.hellocity.entitites.City
 import com.example.hellocity.entitites.NewCity
-import com.example.hellocity.repositories.CityRepository
+import com.example.hellocity.services.CityService
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
@@ -12,25 +12,34 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.server.ResponseStatusException
+import java.lang.IllegalArgumentException
 
 @RestController
 @RequestMapping("/api/city")
-class CityController(private val repository: CityRepository) {
+class CityController(private val cityService: CityService) {
 
     @GetMapping
-    fun findAll(): MutableIterable<City> = repository.findAll()
+    fun getAll(): Iterable<City> = cityService.getAll()
+
+    @GetMapping("/{id}")
+    fun getById(@PathVariable id: Long): City? =
+        cityService.getById(id) ?: throw ResponseStatusException(HttpStatus.NOT_FOUND, "City with id $id does not exist")
 
     @GetMapping("/{slug}")
-    fun findOne(@PathVariable slug: String) =
-        repository.findBySlug(slug) ?: throw ResponseStatusException(HttpStatus.NOT_FOUND, "This city does not exist")
+    fun getBySlug(@PathVariable slug: String): City? =
+        cityService.getBySlug(slug) ?: throw ResponseStatusException(HttpStatus.NOT_FOUND, "City with slug $slug does not exist")
 
     @RequestMapping(method = [RequestMethod.POST])
     fun addCity(@RequestBody newCity: NewCity) {
-        repository.save(City(newCity.name, newCity.description))
+        cityService.addCity(newCity)
     }
 
     @DeleteMapping("/{id}")
     fun deleteCity(@PathVariable id: Long) {
-        repository.deleteById(id)
+        try {
+            cityService.deleteById(id)
+        } catch (e: IllegalArgumentException) {
+            throw ResponseStatusException(HttpStatus.NOT_FOUND, e.localizedMessage)
+        }
     }
 }
