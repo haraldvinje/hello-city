@@ -15,7 +15,7 @@ spring:
   jpa:
     hibernate:
       dialect: org.hibernate.dialect.MySQL8Dialect
-      default_schema: hello-norway
+      default_schema: hello-city
       show_sql: true
       ddl-auto: update
 

@@ -1,6 +1,6 @@
 pluginManagement {
-	repositories {
-		gradlePluginPortal()
-	}
+    repositories {
+        gradlePluginPortal()
+    }
 }
-rootProject.name = "hellonorway"
+rootProject.name = "hellocity"

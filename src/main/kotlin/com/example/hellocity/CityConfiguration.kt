@@ -1,5 +1,6 @@
-package com.example.hellonorway
+package com.example.hellocity
 
+import com.example.hellocity.repositories.CityRepository
 import org.springframework.boot.ApplicationRunner
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

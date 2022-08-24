@@ -1,6 +1,6 @@
-package com.example.hellonorway
+package com.example.hellocity.extensions
 
-import java.util.*
+import java.util.Locale
 
 fun String.toSlug() = lowercase(Locale.getDefault())
     .replace("\n", " ")
