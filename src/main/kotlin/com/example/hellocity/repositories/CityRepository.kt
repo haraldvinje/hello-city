@@ -1,15 +1,17 @@
 package com.example.hellocity.repositories
 
 import com.example.hellocity.models.City
-import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.CrudRepository
 import org.springframework.data.repository.query.Param
+import java.util.Optional
 
 interface CityRepository : CrudRepository<City, Long> {
 
-    @Query("SELECT * FROM cities WHERE slug = :slug", nativeQuery = true)
-    fun findBySlug(@Param("slug") slug: String): City?
+    fun findBySlug(@Param("slug") slug: String): Optional<City>
 
-    @Query("SELECT * FROM cities ORDER BY added_at DESC", nativeQuery = true)
+    fun findAllBySlugContainingOrderBySlugDesc(@Param("name") name: String): Iterable<City>
+
     fun findAllByOrderByAddedAtDesc(): Iterable<City>
+
+    fun findAllByName(@Param("name") name: String): Iterable<City>
 }

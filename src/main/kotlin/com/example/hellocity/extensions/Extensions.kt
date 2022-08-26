@@ -10,4 +10,4 @@ fun String.toSlug() = lowercase(Locale.getDefault())
     .joinToString("-")
     .replace("-+".toRegex(), "-")
 
-fun <T> Optional<T>.unrwap(): T? = orElse(null)
+fun <T> Optional<T>.unwrap(): T? = orElse(null)

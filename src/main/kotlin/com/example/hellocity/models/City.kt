@@ -15,7 +15,7 @@ class City(
     var description: String,
     var slug: String = name.toSlug(),
     var addedAt: LocalDateTime = LocalDateTime.now(),
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) var id: Long = 0
+    @Id @GeneratedValue(strategy = GenerationType.TABLE) var id: Long = 0
 )
 
 data class NewCity(

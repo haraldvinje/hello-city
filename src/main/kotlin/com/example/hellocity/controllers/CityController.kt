@@ -18,13 +18,13 @@ import org.springframework.web.server.ResponseStatusException
 class CityController(private val cityService: CityService) {
 
     @GetMapping
-    fun getAll(): Iterable<City> = cityService.getAll()
+    fun getAll(): List<City> = cityService.getAll()
 
     @GetMapping("/{id}")
     fun getById(@PathVariable id: Long): City? =
         cityService.getById(id)
 
-    @GetMapping("/{slug}")
+    @GetMapping("/slug/{slug}")
     fun getBySlug(@PathVariable slug: String): City? =
         cityService.getBySlug(slug)
 

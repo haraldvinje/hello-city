@@ -1,0 +1,13 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+  cloud:
+    gcp:
+      sql:
+        enabled: false
+
+logging:
+  level:
+    root: WARN

@@ -4,6 +4,7 @@ plugins {
     application
     id("org.springframework.boot") version "2.6.5"
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
+    id("com.adarshr.test-logger") version "3.2.0"
     kotlin("jvm") version "1.6.10"
     id("org.jlleitschuh.gradle.ktlint") version "10.3.0"
     kotlin("plugin.spring") version "1.6.10"
@@ -26,29 +27,40 @@ repositories {
     mavenCentral()
 }
 
+extra["testcontainersVersion"] = "1.17.3"
+
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
-    implementation("org.springframework.cloud:spring-cloud-gcp-starter-sql-mysql:1.2.8.RELEASE")
+    implementation("org.springframework.boot:spring-boot-starter-logging")
+    implementation("org.springframework.cloud:spring-cloud-gcp-starter-sql-postgresql:1.2.8.RELEASE")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("org.postgresql:postgresql:42.4.2")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
-    implementation("com.google.cloud.sql:mysql-socket-factory-connector-j-8:1.6.3")
+    implementation("com.google.cloud.sql:postgres-socket-factory:1.6.3")
     runtimeOnly("com.h2database:h2")
     runtimeOnly("org.springframework.boot:spring-boot-devtools")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")
-    implementation("io.github.microutils:kotlin-logging-jvm:2.1.23")
+    testImplementation("org.testcontainers:junit-jupiter")
+    testImplementation("org.testcontainers:postgresql:1.17.3")
     implementation("com.pinterest:ktlint:0.47.0")
+}
+
+dependencyManagement {
+    imports {
+        mavenBom("org.testcontainers:testcontainers-bom:${property("testcontainersVersion")}")
+    }
 }
 
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
 }
 
