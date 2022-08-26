@@ -28,11 +28,9 @@ class CityService(private val cityRepository: CityRepository) {
 
     fun addCity(newCity: NewCity) {
         val city = City(newCity.name, newCity.description)
-        val latestMatchingSlug = cityRepository.findAllBySlugContainingOrderBySlugDesc(city.slug).firstOrNull {
-            it.slug.matches(Regex(it.slug.plus("|-[0-9]+")))
-        }?.slug
+        val latestMatchingSlug = cityRepository.findAllBySlugContainingOrderBySlugDesc(city.slug).firstOrNull()?.slug
         if (latestMatchingSlug?.contains("-") == true) {
-            city.slug += "-" + latestMatchingSlug.split("-")[1].toInt().plus(1).toString()
+            city.slug += "-" + latestMatchingSlug.split("-").last().toInt().plus(1).toString()
         } else if (latestMatchingSlug?.isNotEmpty() == true) {
             city.slug += "-2"
         }
