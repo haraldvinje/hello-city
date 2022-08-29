@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.server.ResponseStatusException
+import javax.validation.Valid
 
 @RestController
 @RequestMapping("/api/city")
@@ -29,7 +30,7 @@ class CityController(private val cityService: CityService) {
         cityService.getBySlug(slug)
 
     @RequestMapping(method = [RequestMethod.POST])
-    fun addCity(@RequestBody newCity: NewCity) {
+    fun addCity(@Valid @RequestBody newCity: NewCity) {
         cityService.addCity(newCity)
     }
 

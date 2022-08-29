@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
 import javax.persistence.Table
+import javax.validation.constraints.Pattern
 
 @Table(name = "cities")
 @Entity
@@ -19,6 +20,7 @@ class City(
 )
 
 data class NewCity(
+    @get:Pattern(regexp = "^[a-zA-Z\\s-]+")
     var name: String,
     var description: String,
 )
