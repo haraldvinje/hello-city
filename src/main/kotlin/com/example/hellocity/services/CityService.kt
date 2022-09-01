@@ -28,11 +28,10 @@ class CityService(private val cityRepository: CityRepository) {
 
     fun addCity(newCity: NewCity) {
         val city = City(newCity.name, newCity.description)
-        val latestMatchingSlug = cityRepository.findAllBySlugContainingOrderBySlugDesc(city.slug).firstOrNull()?.slug
-        if (latestMatchingSlug?.contains("-") == true) {
-            city.slug += "-" + latestMatchingSlug.split("-").last().toInt().plus(1).toString()
-        } else if (latestMatchingSlug?.isNotEmpty() == true) {
-            city.slug += "-2"
+        val allMatchingSlugs = cityRepository.findAllBySlugContainingOrderBySlugDesc(city.slug).map { it.slug }.toList()
+        if (allMatchingSlugs.isNotEmpty()) {
+            val newSlug = getFirstAvailableSlug(city.slug, allMatchingSlugs)
+            city.slug = newSlug
         }
         cityRepository.save(city)
     }
@@ -43,5 +42,12 @@ class CityService(private val cityRepository: CityRepository) {
         } catch (e: Exception) {
             throw CityNotFoundException("City with ID $id not found")
         }
+    }
+
+    private fun getFirstAvailableSlug(attemptedSlug: String, usedSlugs: List<String>): String {
+        val latestSlug = usedSlugs.filter { it.matches(Regex("""$attemptedSlug(-\d+)*$""")) }.maxOrNull()
+            ?: return attemptedSlug
+        val number = if (latestSlug.contains("-")) latestSlug.split("-").last().toInt() + 1 else 2
+        return "$attemptedSlug-$number"
     }
 }
