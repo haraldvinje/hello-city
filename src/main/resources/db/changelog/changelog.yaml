@@ -1,0 +1,34 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: Harald Vinje
+      changes:
+        - createTable:
+            tableName: cities
+            columns:
+              - column:
+                  name: id
+                  type: VARCHAR(60)
+                  constraints:
+                    primaryKey:  true
+                    defaultValue: UUID
+              - column:
+                  name: name
+                  type: VARCHAR
+                  constraints:
+                    nullable:  false
+              - column:
+                  name: description
+                  type: VARCHAR
+                  constraints:
+                    nullable:  false
+              - column:
+                  name: slug
+                  type: VARCHAR
+                  constraints:
+                    nullable:  false
+              - column:
+                  name: added_at
+                  type: DATETIME
+                  constraints:
+                    nullable:  false
