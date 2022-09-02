@@ -27,6 +27,7 @@ databaseChangeLog:
                   type: VARCHAR
                   constraints:
                     nullable:  false
+                    unique: true
               - column:
                   name: added_at
                   type: DATETIME
