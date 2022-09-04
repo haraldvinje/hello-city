@@ -47,6 +47,8 @@ spring:
     gcp:
       sql:
         enabled: false
+  mvc:
+    log-resolved-exception: false
   output:
     ansi:
       enabled: always
