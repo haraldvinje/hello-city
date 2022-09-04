@@ -20,7 +20,7 @@ class CityService(private val cityRepository: CityRepository) {
 
     fun getBySlug(slug: String): City? =
         cityRepository.findBySlug(slug).unwrap() ?: run {
-            logger.error("City with slug $slug not found")
+            logger.info("City with slug $slug not found")
             throw CityNotFoundException("City with slug $slug not found")
         }
 
