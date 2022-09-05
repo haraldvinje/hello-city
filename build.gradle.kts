@@ -2,12 +2,12 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     application
-    id("org.springframework.boot") version "2.6.5"
-    id("io.spring.dependency-management") version "1.0.11.RELEASE"
+    id("org.springframework.boot") version "2.7.3"
+    id("io.spring.dependency-management") version "1.0.13.RELEASE"
     id("com.adarshr.test-logger") version "3.2.0"
-    kotlin("jvm") version "1.6.10"
+    kotlin("jvm") version "1.6.21"
     id("org.jlleitschuh.gradle.ktlint") version "10.3.0"
-    kotlin("plugin.spring") version "1.6.10"
+    kotlin("plugin.spring") version "1.6.21"
     kotlin("plugin.allopen") version "1.4.32"
     kotlin("plugin.jpa") version "1.4.32"
     kotlin("kapt") version "1.4.32"
@@ -30,6 +30,7 @@ repositories {
 extra["testcontainersVersion"] = "1.17.3"
 
 dependencies {
+    implementation("org.springframework.boot:spring-boot-starter-graphql:2.7.3")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
@@ -51,6 +52,7 @@ dependencies {
     testImplementation("io.projectreactor:reactor-test")
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:postgresql:1.17.3")
+    testImplementation("org.springframework.graphql:spring-graphql-test")
 }
 
 dependencyManagement {

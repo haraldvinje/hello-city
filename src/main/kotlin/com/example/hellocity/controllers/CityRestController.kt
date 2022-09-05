@@ -16,7 +16,7 @@ import javax.validation.Valid
 
 @RestController
 @RequestMapping("/api/city")
-class CityController(private val cityService: CityService) {
+class CityRestController(private val cityService: CityService) {
 
     @GetMapping
     fun getAll(): List<City> = cityService.getAll()

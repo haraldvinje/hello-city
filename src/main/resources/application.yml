@@ -36,22 +36,31 @@ spring:
       ddl-auto: create
     spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
     open-in-view: true
+
   datasource:
     url: jdbc:h2:mem:dev
     username: sa
     password: password
     driverClassName: org.h2.Driver
+
   liquibase:
     change-log: classpath:db/changelog/changelog.yaml
+
   cloud:
     gcp:
       sql:
         enabled: false
+
   mvc:
     log-resolved-exception: false
+
   output:
     ansi:
       enabled: always
+
+  graphql:
+    graphiql:
+      enabled: true
 
 logging:
   level:

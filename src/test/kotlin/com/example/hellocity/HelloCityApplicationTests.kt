@@ -1,6 +1,6 @@
 package com.example.hellocity
 
-import com.example.hellocity.controllers.CityController
+import com.example.hellocity.controllers.CityRestController
 import com.example.hellocity.models.NewCity
 import com.example.hellocity.repositories.CityRepository
 import com.example.hellocity.services.CityService
@@ -15,7 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest
 class HelloCityApplicationTests : ContainerBaseTest() {
 
     @Autowired
-    private lateinit var cityController: CityController
+    private lateinit var cityRestController: CityRestController
 
     @Autowired
     private lateinit var cityService: CityService
@@ -32,11 +32,11 @@ class HelloCityApplicationTests : ContainerBaseTest() {
     fun `should be able to add two cities and retrieve them afterwards`() {
         // When
         val oslo = "Oslo"
-        cityController.addCity(NewCity(oslo, "Capital of Norway"))
-        cityController.addCity(NewCity("Bergen", "Rainy city"))
+        cityRestController.addCity(NewCity(oslo, "Capital of Norway"))
+        cityRestController.addCity(NewCity("Bergen", "Rainy city"))
 
         // Then
-        val allCities = cityController.getAll()
+        val allCities = cityRestController.getAll()
         val expectedNumberOfCities = 2
         val actualNumberOfCities = allCities.size
         assertEquals(expectedNumberOfCities, actualNumberOfCities)
@@ -47,9 +47,9 @@ class HelloCityApplicationTests : ContainerBaseTest() {
     fun `should create different slugs when multiple cities of same name are added`() {
         // When
         val cityName = "Manchester"
-        cityController.addCity(NewCity(cityName, "City in London"))
-        cityController.addCity(NewCity(cityName, "City in New Hampshire"))
-        cityController.addCity(NewCity(cityName, "Some other Manchester"))
+        cityRestController.addCity(NewCity(cityName, "City in London"))
+        cityRestController.addCity(NewCity(cityName, "City in New Hampshire"))
+        cityRestController.addCity(NewCity(cityName, "Some other Manchester"))
 
         // Then
         val cities = cityService.getAllByName(cityName)
