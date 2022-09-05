@@ -44,7 +44,7 @@ class HelloCityApplicationTests : ContainerBaseTest() {
     }
 
     @Test
-    fun `should create different slug when multiple cities of same name are added`() {
+    fun `should create different slugs when multiple cities of same name are added`() {
         // When
         val cityName = "Manchester"
         cityController.addCity(NewCity(cityName, "City in London"))
