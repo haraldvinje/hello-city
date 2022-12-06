@@ -6,7 +6,6 @@ spring:
     activate:
       on-profile: production
   cloud:
-    appId: <your-gcp-project-id>
     gcp:
       sql:
         instance-connection-name: <your-gcp-project-id:your-region:your-db-instance>
@@ -14,27 +13,24 @@ spring:
 
   jpa:
     hibernate:
-      dialect: org.hibernate.dialect.MySQL8Dialect
-      default_schema: hello-city
-      show_sql: true
       ddl-auto: update
 
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    continue-on-error: true
-    initialization-mode: always
+    driver-class-name: org.postgresql.Driver
     url: jdbc:mysql:///<app-name>?<your-gcp-project-id:your-region:your-db-instance>&usesocketFactory=com.google.cloud.sql.mysql.SocketFactory&user=<dbusername>&password=<dbpassword>
-    user: <dbuser>
     password: <dbpassword>
   liquibase:
     change-log: classpath:db/changelog/changelog.yaml
+  sql:
+    init:
+      continue-on-error: true
+      mode: always
 
 ---
 spring:
   jpa:
     hibernate:
       ddl-auto: create
-    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
     open-in-view: true
 
   datasource:
