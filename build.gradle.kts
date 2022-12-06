@@ -31,10 +31,9 @@ extra["testcontainersVersion"] = "1.17.3"
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-graphql:3.0.0")
-    implementation ("com.google.cloud:spring-cloud-gcp-starter:3.4.0")
-    implementation ("org.springframework.boot:spring-boot-starter-jdbc:3.0.0")
-    implementation ("com.google.cloud.sql:postgres-socket-factory:*")
-    implementation ("org.postgresql:postgresql:*")
+    implementation("org.springframework.boot:spring-boot-starter-jdbc:3.0.0")
+    implementation("com.google.cloud.sql:postgres-socket-factory:1.7.2")
+    implementation("org.postgresql:postgresql:42.5.1")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
