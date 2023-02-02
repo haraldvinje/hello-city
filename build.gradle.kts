@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     application
-    id("org.springframework.boot") version "2.7.3"
+    id("org.springframework.boot") version "2.7.8"
     id("io.spring.dependency-management") version "1.0.13.RELEASE"
     id("com.adarshr.test-logger") version "3.2.0"
     kotlin("jvm") version "1.6.21"
@@ -30,8 +30,8 @@ repositories {
 extra["testcontainersVersion"] = "1.17.6"
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-graphql:3.0.0")
-    implementation("org.springframework.boot:spring-boot-starter-jdbc:3.0.0")
+    implementation("org.springframework.boot:spring-boot-starter-graphql:3.0.2")
+    implementation("org.springframework.boot:spring-boot-starter-jdbc:3.0.2")
     implementation("com.google.cloud.sql:postgres-socket-factory:1.9.0")
     implementation("org.postgresql:postgresql:42.5.2")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
