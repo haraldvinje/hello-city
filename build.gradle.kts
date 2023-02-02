@@ -32,7 +32,7 @@ extra["testcontainersVersion"] = "1.17.3"
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-graphql:3.0.0")
     implementation("org.springframework.boot:spring-boot-starter-jdbc:3.0.0")
-    implementation("com.google.cloud.sql:postgres-socket-factory:1.7.2")
+    implementation("com.google.cloud.sql:postgres-socket-factory:1.9.0")
     implementation("org.postgresql:postgresql:42.5.2")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
@@ -47,7 +47,7 @@ dependencies {
     implementation("org.postgresql:postgresql:42.5.2")
     implementation("org.liquibase:liquibase-core")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
-    implementation("com.google.cloud.sql:postgres-socket-factory:1.7.2")
+    implementation("com.google.cloud.sql:postgres-socket-factory:1.9.0")
     implementation("com.pinterest:ktlint:0.48.2")
     runtimeOnly("com.h2database:h2")
     runtimeOnly("org.springframework.boot:spring-boot-devtools")
