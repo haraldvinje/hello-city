@@ -48,7 +48,7 @@ dependencies {
     implementation("org.liquibase:liquibase-core")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
     implementation("com.google.cloud.sql:postgres-socket-factory:1.7.2")
-    implementation("com.pinterest:ktlint:0.47.1")
+    implementation("com.pinterest:ktlint:0.48.2")
     runtimeOnly("com.h2database:h2")
     runtimeOnly("org.springframework.boot:spring-boot-devtools")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
