@@ -27,7 +27,7 @@ repositories {
     mavenCentral()
 }
 
-extra["testcontainersVersion"] = "1.17.3"
+extra["testcontainersVersion"] = "1.17.6"
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-graphql:3.0.0")
