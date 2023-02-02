@@ -7,7 +7,7 @@ plugins {
     id("com.adarshr.test-logger") version "3.2.0"
     kotlin("jvm") version "1.6.21"
     id("org.jlleitschuh.gradle.ktlint") version "11.1.0"
-    kotlin("plugin.spring") version "1.6.21"
+    kotlin("plugin.spring") version "1.8.10"
     kotlin("plugin.allopen") version "1.4.32"
     kotlin("plugin.jpa") version "1.4.32"
     kotlin("kapt") version "1.4.32"
