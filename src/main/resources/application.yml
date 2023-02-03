@@ -5,6 +5,7 @@ spring:
   config:
     activate:
       on-profile: production
+
   cloud:
     gcp:
       sql:
@@ -12,6 +13,12 @@ spring:
         database-name: <your-db-name>
 
   jpa:
+    properties:
+      jakarta:
+        persistence:
+          sharedCache:
+            mode: ALL
+
     hibernate:
       ddl-auto: update
 
@@ -29,8 +36,15 @@ spring:
 ---
 spring:
   jpa:
+    properties:
+      jakarta:
+        persistence:
+          sharedCache:
+            mode: ALL
+
     hibernate:
       ddl-auto: create
+
     open-in-view: true
 
   datasource:

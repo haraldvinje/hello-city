@@ -3,6 +3,7 @@ package com.example.hellocity.controllers
 import com.example.hellocity.models.City
 import com.example.hellocity.models.NewCity
 import com.example.hellocity.services.CityService
+import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.server.ResponseStatusException
-import javax.validation.Valid
 
 @RestController
 @RequestMapping("/api/city")
