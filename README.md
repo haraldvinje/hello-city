@@ -29,6 +29,6 @@ query {
 
 ```bash
 ./gradlew build
-java -jar build/libs/<appname>-<version>.jar --args="--spring.profile.active=production"
+java -jar build/libs/<appname>-<version>.jar --args="--spring.profiles.active=production"
 ```
 Replace ```<appname>```  with your application name (usually the value of ```rootProject.Name``` in [settings.gradle.kts](settings.gradle.kts)) and ```<version>``` with version (usually the value of ```version``` in [build.gradle.kts](build.gradle.kts)).

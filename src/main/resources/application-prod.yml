@@ -1,0 +1,34 @@
+spring:
+  cloud:
+    gcp:
+      sql:
+        instance-connection-name: <your-gcp-project-id:your-region:your-db-instance>
+        database-name: <your-db-name>
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  liquibase:
+    change-log: classpath:db/changelog/changelog.yaml
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:mysql:///<app-name>?<your-gcp-project-id:your-region:your-db-instance>&usesocketFactory=com.google.cloud.sql.mysql.SocketFactory&user=<dbusername>&password=<dbpassword>
+    password: <dbpassword>
+
+
+  sql:
+    init:
+      continue-on-error: true
+      mode: always
+
+  devtools:
+    add-properties: false
+
+server:
+  port: ${PORT:8081}
+
+logging:
+  level:
+    root: INFO

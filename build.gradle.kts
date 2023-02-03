@@ -39,22 +39,19 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-logging")
     implementation("com.google.cloud:spring-cloud-gcp-dependencies:4.0.0")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-    implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.postgresql:postgresql:42.5.2")
-    implementation("org.liquibase:liquibase-core")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
     implementation("com.google.cloud.sql:postgres-socket-factory:1.9.0")
     implementation("com.pinterest:ktlint:0.48.2")
+
     runtimeOnly("com.h2database:h2")
+    runtimeOnly("org.liquibase:liquibase-core")
     runtimeOnly("org.springframework.boot:spring-boot-devtools")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("io.projectreactor:reactor-test")
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:postgresql:1.17.6")
-    testImplementation("org.springframework.graphql:spring-graphql-test")
 }
 
 dependencyManagement {
