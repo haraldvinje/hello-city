@@ -10,7 +10,7 @@ plugins {
     kotlin("plugin.spring") version "1.8.10"
     kotlin("plugin.allopen") version "1.8.10"
     kotlin("plugin.jpa") version "1.8.10"
-    kotlin("kapt") version "1.4.32"
+    kotlin("kapt") version "1.8.10"
 }
 
 allOpen {
