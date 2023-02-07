@@ -16,7 +16,7 @@ Simple sample CRUD API for getting, adding and deleting cities. Supports REST an
 
 **GraphQL:** ```POST localhost:8080/graphql```
 ```
-query {
+query GetCities {
     cities {
         id
         name
