@@ -32,7 +32,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-graphql:3.0.2")
     implementation("org.springframework.boot:spring-boot-starter-jdbc:3.0.2")
     implementation("com.google.cloud.sql:postgres-socket-factory:1.10.0")
-    implementation("org.postgresql:postgresql:42.5.2")
+    implementation("org.postgresql:postgresql:42.5.3")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
@@ -41,7 +41,7 @@ dependencies {
     implementation("com.google.cloud:spring-cloud-gcp-dependencies:4.1.0")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation("org.postgresql:postgresql:42.5.2")
+    implementation("org.postgresql:postgresql:42.5.3")
     implementation("com.google.cloud.sql:postgres-socket-factory:1.10.0")
     implementation("com.pinterest:ktlint:0.48.2")
 
