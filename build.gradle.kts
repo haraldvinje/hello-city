@@ -6,7 +6,7 @@ plugins {
     id("io.spring.dependency-management") version "1.1.0"
     id("com.adarshr.test-logger") version "3.2.0"
     kotlin("jvm") version "1.8.10"
-    id("org.jlleitschuh.gradle.ktlint") version "11.2.0"
+    id("org.jlleitschuh.gradle.ktlint") version "11.3.1"
     kotlin("plugin.spring") version "1.8.10"
     kotlin("plugin.jpa") version "1.8.10"
     id("com.autonomousapps.dependency-analysis") version "1.19.0"
