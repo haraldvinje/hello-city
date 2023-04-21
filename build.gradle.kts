@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     application
-    id("org.springframework.boot") version "3.0.5"
+    id("org.springframework.boot") version "3.0.6"
     id("io.spring.dependency-management") version "1.1.0"
     id("com.adarshr.test-logger") version "3.2.0"
     kotlin("jvm") version "1.8.20"
@@ -29,8 +29,8 @@ repositories {
 extra["testcontainersVersion"] = "1.18.0"
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-graphql:3.0.5")
-    implementation("org.springframework.boot:spring-boot-starter-jdbc:3.0.5")
+    implementation("org.springframework.boot:spring-boot-starter-graphql:3.0.6")
+    implementation("org.springframework.boot:spring-boot-starter-jdbc:3.0.6")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
