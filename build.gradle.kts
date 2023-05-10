@@ -5,7 +5,7 @@ plugins {
     id("org.springframework.boot") version "3.0.6"
     id("io.spring.dependency-management") version "1.1.0"
     id("com.adarshr.test-logger") version "3.2.0"
-    kotlin("jvm") version "1.8.20"
+    kotlin("jvm") version "1.8.21"
     id("org.jlleitschuh.gradle.ktlint") version "11.3.2"
     kotlin("plugin.spring") version "1.8.20"
     kotlin("plugin.jpa") version "1.8.21"
