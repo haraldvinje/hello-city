@@ -30,7 +30,10 @@ class CityRestController(private val cityService: CityService) {
         cityService.getBySlug(slug)
 
     @PostMapping()
-    fun addCity(@Valid @RequestBody newCity: NewCity) {
+    fun addCity(
+        @Valid @RequestBody
+        newCity: NewCity
+    ) {
         cityService.addCity(newCity)
     }
 

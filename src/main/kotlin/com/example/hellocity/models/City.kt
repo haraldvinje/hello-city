@@ -16,11 +16,13 @@ class City(
     var description: String,
     var slug: String = name.toSlug(),
     var addedAt: LocalDateTime = LocalDateTime.now(),
-    @Id @GeneratedValue(strategy = GenerationType.TABLE) var id: Long = 0
+    @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
+    var id: Long = 0
 )
 
 data class NewCity(
     @get:Pattern(regexp = "^[a-zA-Z\\s-]+")
     var name: String,
-    var description: String,
+    var description: String
 )
