@@ -30,7 +30,7 @@ class CityService(private val cityRepository: CityRepository) {
         val city = City(newCity.name, newCity.description)
         val allMatchingSlugs = cityRepository.findAllBySlugContainingOrderBySlugDesc(city.slug).map { it.slug }.toList()
         if (allMatchingSlugs.isNotEmpty()) {
-            val newSlug = getFirstAvailableSlug(city.slug, allMatchingSlugs)
+            val newSlug = generateNewSlug(city.slug, allMatchingSlugs)
             city.slug = newSlug
         }
         cityRepository.save(city)
@@ -44,7 +44,7 @@ class CityService(private val cityRepository: CityRepository) {
         }
     }
 
-    private fun getFirstAvailableSlug(attemptedSlug: String, usedSlugs: List<String>): String {
+    private fun generateNewSlug(attemptedSlug: String, usedSlugs: List<String>): String {
         val latestSlug = usedSlugs.filter { it.matches(Regex("""$attemptedSlug(-\d+)*$""")) }.maxOrNull()
             ?: return attemptedSlug
         val number = if (latestSlug.contains("-")) latestSlug.split("-").last().toInt() + 1 else 2
