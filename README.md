@@ -10,7 +10,7 @@ Simple sample CRUD API for getting, adding and deleting cities. Supports REST an
 
 ### Example query
 
-#### Get All citites
+#### Get All cities
 
 **Rest:** ```GET localhost:8080/api/city```
 
