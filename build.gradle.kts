@@ -1,3 +1,4 @@
+import com.adarshr.gradle.testlogger.theme.ThemeType
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -66,4 +67,8 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+testlogger {
+    theme = ThemeType.STANDARD
 }
