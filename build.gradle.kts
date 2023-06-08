@@ -7,7 +7,7 @@ plugins {
     id("io.spring.dependency-management") version "1.1.0"
     id("com.adarshr.test-logger") version "3.2.0"
     kotlin("jvm") version "1.8.22"
-    id("org.jlleitschuh.gradle.ktlint") version "11.3.2"
+    id("org.jlleitschuh.gradle.ktlint") version "11.4.0"
     kotlin("plugin.spring") version "1.8.22"
     kotlin("plugin.jpa") version "1.8.21"
     id("com.autonomousapps.dependency-analysis") version "1.20.0"
