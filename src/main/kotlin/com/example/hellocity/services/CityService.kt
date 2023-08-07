@@ -3,7 +3,7 @@ package com.example.hellocity.services
 import com.example.hellocity.exceptions.CityNotFoundException
 import com.example.hellocity.extensions.unwrap
 import com.example.hellocity.models.City
-import com.example.hellocity.models.NewCity
+import com.example.hellocity.models.CityDto
 import com.example.hellocity.repositories.CityRepository
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
@@ -26,8 +26,8 @@ class CityService(private val cityRepository: CityRepository) {
 
     fun getAllByName(name: String): List<City> = cityRepository.findAllByName(name).toList()
 
-    fun addCity(newCity: NewCity) {
-        val city = City(newCity.name, newCity.description)
+    fun addCity(cityDTO: CityDto) {
+        val city = City(cityDTO.name, cityDTO.description)
         val allMatchingSlugs = cityRepository.findAllBySlugContainingOrderBySlugDesc(city.slug).map { it.slug }.toList()
         if (allMatchingSlugs.isNotEmpty()) {
             val newSlug = generateNewSlug(city.slug, allMatchingSlugs)

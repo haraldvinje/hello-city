@@ -1,7 +1,7 @@
 package com.example.hellocity.controllers
 
 import com.example.hellocity.models.City
-import com.example.hellocity.models.NewCity
+import com.example.hellocity.models.CityDto
 import com.example.hellocity.services.CityService
 import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
@@ -32,9 +32,9 @@ class CityRestController(private val cityService: CityService) {
     @PostMapping()
     fun addCity(
         @Valid @RequestBody
-        newCity: NewCity
+        cityDTO: CityDto
     ) {
-        cityService.addCity(newCity)
+        cityService.addCity(cityDTO)
     }
 
     @DeleteMapping("/{id}")

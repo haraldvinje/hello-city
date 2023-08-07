@@ -1,7 +1,7 @@
 package com.example.hellocity
 
 import com.example.hellocity.controllers.CityRestController
-import com.example.hellocity.models.NewCity
+import com.example.hellocity.models.CityDto
 import com.example.hellocity.repositories.CityRepository
 import com.example.hellocity.services.CityService
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -32,8 +32,8 @@ class HelloCityApplicationTests : ContainerBaseTest() {
     fun `should be able to add two cities and retrieve them afterwards`() {
         // When
         val oslo = "Oslo"
-        cityRestController.addCity(NewCity(oslo, "Capital of Norway"))
-        cityRestController.addCity(NewCity("Bergen", "Rainy city"))
+        cityRestController.addCity(CityDto(oslo, "Capital of Norway"))
+        cityRestController.addCity(CityDto("Bergen", "Rainy city"))
 
         // Then
         val allCities = cityRestController.getAll()
@@ -47,9 +47,9 @@ class HelloCityApplicationTests : ContainerBaseTest() {
     fun `should create different slugs when multiple cities of same name are added`() {
         // When
         val cityName = "Manchester"
-        cityRestController.addCity(NewCity(cityName, "City in London"))
-        cityRestController.addCity(NewCity(cityName, "City in New Hampshire"))
-        cityRestController.addCity(NewCity(cityName, "Some other Manchester"))
+        cityRestController.addCity(CityDto(cityName, "City in London"))
+        cityRestController.addCity(CityDto(cityName, "City in New Hampshire"))
+        cityRestController.addCity(CityDto(cityName, "Some other Manchester"))
 
         // Then
         val cities = cityService.getAllByName(cityName)

@@ -21,7 +21,7 @@ class City(
     var id: Long = 0
 )
 
-data class NewCity(
+data class CityDto(
     @get:Pattern(regexp = "^[a-zA-Z\\s-]+")
     var name: String,
     var description: String
