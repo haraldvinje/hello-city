@@ -11,7 +11,7 @@ interface CityRepository : CrudRepository<City, Long> {
 
     fun findAllBySlugContainingOrderBySlugDesc(@Param("name") name: String): Iterable<City>
 
-    fun findAllByOrderByAddedAtDesc(): Iterable<City>
+    fun findAllByOrderByAddedAt(): Iterable<City>
 
     fun findAllByName(@Param("name") name: String): Iterable<City>
 }

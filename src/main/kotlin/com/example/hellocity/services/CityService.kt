@@ -13,7 +13,7 @@ class CityService(private val cityRepository: CityRepository) {
 
     private val logger = LoggerFactory.getLogger(this::class.java)
 
-    fun getAll(): List<City> = cityRepository.findAllByOrderByAddedAtDesc().toList()
+    fun getAll(): List<City> = cityRepository.findAllByOrderByAddedAt().toList()
 
     fun getById(id: Long) =
         cityRepository.findById(id).unwrap() ?: throw CityNotFoundException("City with ID $id not found")
