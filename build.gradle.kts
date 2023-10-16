@@ -39,7 +39,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-logging")
     implementation("com.google.cloud:spring-cloud-gcp-dependencies:4.8.1")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation("com.pinterest:ktlint:0.50.0")
+    implementation("com.pinterest:ktlint:0.51.0-FINAL")
 
     runtimeOnly("com.h2database:h2")
     runtimeOnly("org.postgresql:postgresql:42.6.0")
