@@ -4,7 +4,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     application
     id("org.springframework.boot") version "3.1.5"
-    id("io.spring.dependency-management") version "1.1.3"
+    id("io.spring.dependency-management") version "1.1.4"
     id("com.adarshr.test-logger") version "4.0.0"
     kotlin("jvm") version "1.9.20"
     id("org.jlleitschuh.gradle.ktlint") version "11.6.1"
