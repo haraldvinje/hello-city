@@ -42,7 +42,7 @@ dependencies {
     implementation("com.pinterest:ktlint:0.51.0-FINAL")
 
     runtimeOnly("com.h2database:h2")
-    runtimeOnly("org.postgresql:postgresql:42.6.0")
+    runtimeOnly("org.postgresql:postgresql:42.7.0")
     runtimeOnly("org.liquibase:liquibase-core")
     runtimeOnly("org.springframework.boot:spring-boot-devtools")
     runtimeOnly("org.jetbrains.kotlin:kotlin-reflect")
