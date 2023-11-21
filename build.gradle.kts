@@ -27,7 +27,7 @@ repositories {
     mavenCentral()
 }
 
-extra["testcontainersVersion"] = "1.19.2"
+extra["testcontainersVersion"] = "1.19.3"
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-graphql:3.1.5")
@@ -49,7 +49,7 @@ dependencies {
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.testcontainers:junit-jupiter")
-    testImplementation("org.testcontainers:postgresql:1.19.2")
+    testImplementation("org.testcontainers:postgresql:1.19.3")
 }
 
 dependencyManagement {
