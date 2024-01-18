@@ -10,7 +10,7 @@ plugins {
     id("org.jlleitschuh.gradle.ktlint") version "12.1.0"
     kotlin("plugin.spring") version "1.9.22"
     kotlin("plugin.jpa") version "1.9.22"
-    id("com.autonomousapps.dependency-analysis") version "1.28.0"
+    id("com.autonomousapps.dependency-analysis") version "1.29.0"
 }
 
 allOpen {
