@@ -9,7 +9,7 @@ plugins {
     kotlin("jvm") version "2.0.0"
     id("org.jlleitschuh.gradle.ktlint") version "12.1.1"
     kotlin("plugin.spring") version "2.0.0"
-    kotlin("plugin.jpa") version "2.0.0"
+    kotlin("plugin.jpa") version "2.0.10"
     id("com.autonomousapps.dependency-analysis") version "1.33.0"
 }
 
