@@ -8,7 +8,7 @@ plugins {
     id("com.adarshr.test-logger") version "4.0.0"
     kotlin("jvm") version "2.0.20"
     id("org.jlleitschuh.gradle.ktlint") version "12.1.1"
-    kotlin("plugin.spring") version "2.0.20"
+    kotlin("plugin.spring") version "2.0.21"
     kotlin("plugin.jpa") version "2.0.20"
     id("com.autonomousapps.dependency-analysis") version "2.1.4"
 }
