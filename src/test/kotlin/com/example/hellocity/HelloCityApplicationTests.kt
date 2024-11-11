@@ -13,7 +13,6 @@ import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
 class HelloCityApplicationTests : ContainerBaseTest() {
-
     @Autowired
     private lateinit var cityRestController: CityRestController
 

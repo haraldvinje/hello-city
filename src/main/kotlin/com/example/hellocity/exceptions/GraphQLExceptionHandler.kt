@@ -15,12 +15,16 @@ class GraphQLExceptionHandler : DataFetcherExceptionResolverAdapter() {
         private val log: Logger = LoggerFactory.getLogger(this::class.java)
     }
 
-    override fun resolveToSingleError(e: Throwable, env: DataFetchingEnvironment): GraphQLError? {
+    override fun resolveToSingleError(
+        e: Throwable,
+        env: DataFetchingEnvironment,
+    ): GraphQLError? {
         return when (e) {
             is CityNotFoundException -> toGraphQLError(e)
             else -> super.resolveToSingleError(e, env)
         }
     }
+
     private fun toGraphQLError(e: Throwable): GraphQLError? {
         log.warn("Exception while handling request: ${e.message}", e)
         return GraphqlErrorBuilder.newError().message(e.message).errorType(ErrorType.DataFetchingException).build()

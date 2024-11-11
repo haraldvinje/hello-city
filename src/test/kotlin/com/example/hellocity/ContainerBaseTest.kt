@@ -10,15 +10,14 @@ import org.testcontainers.junit.jupiter.Testcontainers
 @Testcontainers
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.AUTO_CONFIGURED)
 open class ContainerBaseTest {
-
     companion object {
-
         @Container
-        val container = PostgreSQLContainer<Nothing>("postgres:12").apply {
-            withDatabaseName("test-db")
-            withUsername("sa")
-            withPassword("sa")
-        }
+        val container =
+            PostgreSQLContainer<Nothing>("postgres:12").apply {
+                withDatabaseName("test-db")
+                withUsername("sa")
+                withPassword("sa")
+            }
 
         @JvmStatic
         @DynamicPropertySource

@@ -10,13 +10,11 @@ import org.springframework.stereotype.Service
 
 @Service
 class CityService(private val cityRepository: CityRepository) {
-
     private val logger = LoggerFactory.getLogger(this::class.java)
 
     fun getAll(): List<City> = cityRepository.findAllByOrderByAddedAt().toList()
 
-    fun getById(id: Long) =
-        cityRepository.findById(id).unwrap() ?: throw CityNotFoundException("City with ID $id not found")
+    fun getById(id: Long) = cityRepository.findById(id).unwrap() ?: throw CityNotFoundException("City with ID $id not found")
 
     fun getBySlug(slug: String): City? =
         cityRepository.findBySlug(slug).unwrap() ?: run {
@@ -44,9 +42,13 @@ class CityService(private val cityRepository: CityRepository) {
         }
     }
 
-    private fun generateNewSlug(attemptedSlug: String, usedSlugs: List<String>): String {
-        val latestSlug = usedSlugs.filter { it.matches(Regex("""$attemptedSlug(-\d+)*$""")) }.maxOrNull()
-            ?: return attemptedSlug
+    private fun generateNewSlug(
+        attemptedSlug: String,
+        usedSlugs: List<String>,
+    ): String {
+        val latestSlug =
+            usedSlugs.filter { it.matches(Regex("""$attemptedSlug(-\d+)*$""")) }.maxOrNull()
+                ?: return attemptedSlug
         val number = if (latestSlug.contains("-")) latestSlug.split("-").last().toInt() + 1 else 2
         return "$attemptedSlug-$number"
     }

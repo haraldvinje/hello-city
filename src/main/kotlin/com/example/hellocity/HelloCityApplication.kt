@@ -22,8 +22,8 @@ class DataInitializer(private val cityRepository: CityRepository) {
         cityRepository.saveAll(
             listOf(
                 City("London", "Capital of UK"),
-                City("Oslo", "Capital of Norway")
-            )
+                City("Oslo", "Capital of Norway"),
+            ),
         )
     }
 }

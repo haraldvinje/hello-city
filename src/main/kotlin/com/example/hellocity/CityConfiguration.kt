@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Configuration
 
 @Configuration
 class CityConfiguration {
-
     @Bean
     fun databaseInitializer(cityRepository: CityRepository) = ApplicationRunner {}
 }

@@ -18,11 +18,11 @@ class City(
     var addedAt: LocalDateTime = LocalDateTime.now(),
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
-    var id: Long = 0
+    var id: Long = 0,
 )
 
 data class CityDto(
     @get:Pattern(regexp = "^[a-zA-Z\\s-]+")
     var name: String,
-    var description: String
+    var description: String,
 )
