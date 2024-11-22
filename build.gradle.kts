@@ -30,7 +30,7 @@ repositories {
 extra["testcontainersVersion"] = "1.20.4"
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-graphql:3.3.5")
+    implementation("org.springframework.boot:spring-boot-starter-graphql:3.4.0")
     implementation("org.springframework.boot:spring-boot-starter-jdbc:3.3.5")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
