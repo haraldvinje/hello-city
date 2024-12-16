@@ -3,6 +3,7 @@ spring:
     hibernate:
       ddl-auto: create-drop
     spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+    open-in-view: true
   liquibase:
     change-log: classpath:db/changelog/changelog.yaml
   cloud:

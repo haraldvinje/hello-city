@@ -29,6 +29,8 @@ repositories {
 
 extra["testcontainersVersion"] = "1.20.4"
 
+val mockitoAgent = configurations.create("mockitoAgent")
+
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-graphql:3.4.0")
     implementation("org.springframework.boot:spring-boot-starter-jdbc:3.4.0")
@@ -50,6 +52,8 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:postgresql:1.20.4")
+    testImplementation("org.mockito:mockito-core:5.14.2")
+    mockitoAgent("org.mockito:mockito-core:5.14.2") { isTransitive = false }
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
@@ -67,6 +71,7 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+    jvmArgs("-javaagent:${mockitoAgent.asPath}")
 }
 
 testlogger {
