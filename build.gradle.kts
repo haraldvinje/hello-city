@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     application
-    id("org.springframework.boot") version "3.4.1"
+    id("org.springframework.boot") version "3.4.3"
     id("io.spring.dependency-management") version "1.1.7"
     id("com.adarshr.test-logger") version "4.0.0"
     kotlin("jvm") version "2.1.0"
@@ -32,8 +32,8 @@ extra["testcontainersVersion"] = "1.20.4"
 val mockitoAgent = configurations.create("mockitoAgent")
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-graphql:3.4.1")
-    implementation("org.springframework.boot:spring-boot-starter-jdbc:3.4.1")
+    implementation("org.springframework.boot:spring-boot-starter-graphql:3.4.3")
+    implementation("org.springframework.boot:spring-boot-starter-jdbc:3.4.3")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
