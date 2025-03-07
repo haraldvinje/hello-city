@@ -39,7 +39,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-logging")
-    implementation("com.google.cloud:spring-cloud-gcp-dependencies:5.9.0")
+    implementation("com.google.cloud:spring-cloud-gcp-dependencies:5.11.2")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("com.pinterest:ktlint:0.51.0-FINAL")
 
