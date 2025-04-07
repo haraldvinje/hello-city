@@ -52,8 +52,8 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:postgresql:1.20.6")
-    testImplementation("org.mockito:mockito-core:5.16.0")
-    mockitoAgent("org.mockito:mockito-core:5.16.0") { isTransitive = false }
+    testImplementation("org.mockito:mockito-core:5.17.0")
+    mockitoAgent("org.mockito:mockito-core:5.17.0") { isTransitive = false }
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
