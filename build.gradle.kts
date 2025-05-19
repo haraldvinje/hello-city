@@ -27,7 +27,7 @@ repositories {
     mavenCentral()
 }
 
-extra["testcontainersVersion"] = "1.20.6"
+extra["testcontainersVersion"] = "1.21.0"
 
 val mockitoAgent = configurations.create("mockitoAgent")
 
@@ -51,7 +51,7 @@ dependencies {
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.testcontainers:junit-jupiter")
-    testImplementation("org.testcontainers:postgresql:1.20.6")
+    testImplementation("org.testcontainers:postgresql:1.21.0")
     testImplementation("org.mockito:mockito-core:5.17.0")
     mockitoAgent("org.mockito:mockito-core:5.17.0") { isTransitive = false }
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
